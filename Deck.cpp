@@ -1,27 +1,24 @@
 #include "Deck.hpp"
+#include <iomanip>
+#include <iostream>
 
 Deck::Deck(
-	const unsigned int deck_size,
-	deck const& cards
+	std::vector<card> cards,
+	unsigned short deck_size
 ) :
-	m_deck_size(deck_size),
-	m_cards(cards)
-{}
-
-const float Deck::calculate_probability(const unsigned int remaining) {
-	return ((float)remaining / (float)m_deck_size) * 100;
+	m_cards(cards),
+	m_deck_size(deck_size)
+{
+	set_probabilities();
 }
 
-const float Deck::get_probability(std::string const& card) {
-	for(deck::iterator iterator = m_cards.find(card); iterator != m_cards.end(); iterator++)
-		return calculate_probability(iterator->second);
+void Deck::set_probabilities() {
+	for(card& card : m_cards)
+		std::get<2>(card) = (static_cast<float>(std::get<1>(card)) / static_cast<float>(m_deck_size)) * 100.f;
 }
 
-probabilities Deck::get_probabilities() {
-	probabilities card_probabilities;
-
-	for(deck::iterator iterator = m_cards.begin(); iterator != m_cards.end(); iterator++)
-		card_probabilities.insert({ iterator->first, calculate_probability(iterator->second)});
-
-	return card_probabilities;
+void Deck::get_probabilities() const {
+	for(card card : m_cards)
+		std::cout << std::setprecision(2) << std::fixed
+			<< std::get<0>(card) << ": " << std::get<2>(card) << "%" << std::endl;
 }

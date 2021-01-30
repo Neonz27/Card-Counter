@@ -1,25 +1,41 @@
 #pragma once
 
 #include <string>
-#include <map>
+#include <tuple>
+#include <vector>
 
-using deck = std::map<const std::string, unsigned int>;
-using probabilities = std::map<const std::string, const float>;
+/// <summary>
+/// A tuple that contains a card's name, quantity, and likelihood to be drawn.
+/// </summary>
+using card = std::tuple<
+	const std::string, // Card Name
+	unsigned short int, // Card Count
+	float // Card Draw (%) 
+>;
 
+/// <summary>
+/// The Deck class can be used to determine the quantity of each card in a deck as well as your likelihood to draw it.
+/// </summary>
 class Deck {
 	public:
-		Deck(
-			const unsigned int deck_size,
-			deck const& cards
-		);
+		/// <summary>
+		/// The default constructor for the Deck class.
+		/// </summary>
+		/// <param name="cards"></param>
+		Deck(std::vector<card> cards, const unsigned short deck_size);
 
-		const float get_probability(std::string const& card);
-		
-		probabilities get_probabilities();
+		/// <summary>
+		/// Prints formatted card probability data to the console.
+		/// </summary>
+		void get_probabilities() const;
 
 	private:
-		const float calculate_probability(const unsigned int remaining);
-
-		const unsigned int m_deck_size;
-		deck m_cards;
+		/// <summary>
+		/// Calculates & sets probability for each card in the deck.
+		/// </summary>
+		void set_probabilities();
+		
+		// Private Member Variable(s)
+		std::vector<card> m_cards;
+		unsigned short m_deck_size;
 };
