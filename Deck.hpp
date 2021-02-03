@@ -27,13 +27,30 @@ class Deck {
 		/// <summary>
 		/// Prints formatted card probability data to the console.
 		/// </summary>
-		void get_probabilities() const;
+		void get_probabilities();
+
+		/// <summary>
+		/// Removes a copy of a card from the deck.
+		/// </summary>
+		void add_card_copy(const std::string& card_name);
+
+		/// <summary>
+		/// Removes a copy of a card from the deck.
+		/// </summary>
+		void remove_card_copy(const std::string& card_name);
 
 	private:
 		/// <summary>
 		/// Calculates & sets probability for each card in the deck.
 		/// </summary>
-		void set_probabilities();
+		void calculate_probabilities();
+
+		/// <summary>
+		/// Finds a specified card if it exists within the current deck.
+		/// </summary>
+		/// <param name="card_name"></param>
+		/// <returns>A container full of data on a specified card.</returns>
+		card& find_card(const std::string& card_name);
 		
 		// Private Member Variable(s)
 		std::vector<card> m_cards;
