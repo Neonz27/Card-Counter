@@ -14,6 +14,15 @@ using card = std::tuple<
 >;
 
 /// <summary>
+/// An exception thrown when no card was found with a name matching the user input.
+/// </summary>
+struct CardDoesntExist : public std::exception {
+	const char* what() const throw() {
+		return "That card does not exist within the currently selected deck!";
+	}
+};
+
+/// <summary>
 /// The Deck class can be used to determine the quantity of each card in a deck as well as your likelihood to draw it.
 /// </summary>
 class Deck {

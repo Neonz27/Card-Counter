@@ -1,4 +1,5 @@
 #include "Deck.hpp"
+#include "Utility.hpp"
 #include <iostream>
 
 
@@ -7,17 +8,6 @@ I am quite aware that the code for this is messy.
 I wrote it while I was bored & sleep-deprived.
 Just cut me some slack, will ya? \(o-o)/
 */
-
-void clear_console() {
-	#if defined _WIN32
-		system("cls");
-	#elif defined (__LINUX__) ||
-		  defined (__gnu_linux__) ||
-		  defined (__linux__) ||
-		  defined (__APPLE__)
-		system("clear");
-	#endif
-}
 
 const unsigned short get_choice() {
 	std::cout 
@@ -45,7 +35,7 @@ const std::string get_card_name() {
 
 int main() {
 	std::vector<card> standard_cards = {
-		std::make_tuple("One", 4, 0.0f),
+		std::make_tuple("Ace", 4, 0.0f),
 		std::make_tuple("Two", 4, 0.0f),
 		std::make_tuple("Three", 4, 0.0f),
 		std::make_tuple("Four", 4, 0.0f),
@@ -64,6 +54,7 @@ int main() {
 
 	bool is_playing = true;
 	while(is_playing) {
+		clear_buffer();
 		clear_console();
 		
 		example_deck.get_probabilities();
@@ -78,7 +69,7 @@ int main() {
 		} else if(choice == 2) {
 			const std::string card_name = get_card_name();
 			example_deck.remove_card_copy(card_name);
-		} else {
+		} else if(choice == 3) {
 			is_playing = false;
 		}
 	}
