@@ -1,14 +1,10 @@
 #include "Deck.hpp"
 #include "Utility.hpp"
-#include <iostream>
 
-
-/*
-I am quite aware that the code for this is messy.
-I wrote it while I was bored & sleep-deprived.
-Just cut me some slack, will ya? \(o-o)/
-*/
-
+/// <summary>
+/// Asks the user what their intentions are.
+/// </summary>
+/// <returns>An integer corresponding to the user's intentions.</returns>
 const unsigned short get_choice() {
 	std::cout 
 		<< "1. Add Card" << std::endl 
@@ -22,6 +18,10 @@ const unsigned short get_choice() {
 	return choice;
 }
 
+/// <summary>
+/// Asks the user which card they wish to select.
+/// </summary>
+/// <returns>The name of the card selected by the user.</returns>
 const std::string get_card_name() {
 	clear_console();
 
@@ -50,27 +50,30 @@ int main() {
 		std::make_tuple("King", 4, 0.0f)
 	};
 
-	Deck example_deck(standard_cards, 52);
+	Deck deck(standard_cards, 52);
 
 	bool is_playing = true;
 	while(is_playing) {
 		clear_buffer();
 		clear_console();
 		
-		example_deck.get_probabilities();
+		deck.get_probabilities();
 
 		std::cout << std::endl;
 
 		const unsigned short choice = get_choice();
+		switch(choice) {
+			case 1:
+				deck.add_card_copy(get_card_name());
+				break;
 
-		if(choice == 1) {
-			const std::string card_name = get_card_name();
-			example_deck.add_card_copy(card_name);
-		} else if(choice == 2) {
-			const std::string card_name = get_card_name();
-			example_deck.remove_card_copy(card_name);
-		} else if(choice == 3) {
-			is_playing = false;
+			case 2:
+				deck.remove_card_copy(get_card_name());
+				break;
+
+			case 3:
+				is_playing = false;
+				break;
 		}
 	}
 

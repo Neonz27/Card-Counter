@@ -2,10 +2,9 @@
 #include "Utility.hpp"
 #include <algorithm>
 #include <iomanip>
-#include <iostream>
 
 Deck::Deck(
-	std::vector<card> cards,
+	std::vector<card>& cards,
 	unsigned short deck_size
 ) :
 	m_cards(cards),

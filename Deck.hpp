@@ -1,24 +1,14 @@
 #pragma once
 
-#include <string>
-#include <tuple>
+#include "Card.hpp"
 #include <vector>
-
-/// <summary>
-/// A tuple that contains a card's name, quantity, and likelihood to be drawn.
-/// </summary>
-using card = std::tuple<
-	const std::string, // Card Name
-	unsigned short int, // Card Count
-	float // Card Draw (%) 
->;
 
 /// <summary>
 /// An exception thrown when no card was found with a name matching the user input.
 /// </summary>
 struct CardDoesntExist : public std::exception {
 	const char* what() const throw() {
-		return "That card does not exist within the currently selected deck!";
+		return "That card does not exist within the currently selected deck!\nPlease press the enter key to continue.";
 	}
 };
 
@@ -31,7 +21,7 @@ class Deck {
 		/// The default constructor for the Deck class.
 		/// </summary>
 		/// <param name="cards"></param>
-		Deck(std::vector<card> cards, const unsigned short deck_size);
+		Deck(std::vector<card>& cards, const unsigned short deck_size);
 
 		/// <summary>
 		/// Prints formatted card probability data to the console.
@@ -50,7 +40,7 @@ class Deck {
 
 	private:
 		/// <summary>
-		/// Calculates & sets probability for each card in the deck.
+		/// Calculates &amp; sets probability for each card in the deck.
 		/// </summary>
 		void calculate_probabilities();
 
