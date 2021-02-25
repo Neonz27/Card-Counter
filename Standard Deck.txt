@@ -1,13 +1,52 @@
-4 Ace
-4 Two
-4 Three
-4 Four
-4 Five
-4 Six
-4 Seven
-4 Eight
-4 Nine
-4 Ten
-4 Jack
-4 Queen
-4 King
+1 Ace (Spades)
+1 Ace (Hearts)
+1 Ace (Diamonds)
+1 Ace (Clubs)
+1 Two (Spades)
+1 Two (Hearts)
+1 Two (Diamonds)
+1 Two (Clubs)
+1 Three (Spades)
+1 Three (Hearts)
+1 Three (Diamonds)
+1 Three (Clubs)
+1 Four (Spades)
+1 Four (Hearts)
+1 Four (Diamonds)
+1 Four (Clubs)
+1 Five (Spades)
+1 Five (Hearts)
+1 Five (Diamonds)
+1 Five (Clubs)
+1 Six (Spades)
+1 Six (Hearts)
+1 Six (Diamonds)
+1 Six (Clubs)
+1 Seven (Spades)
+1 Seven (Hearts)
+1 Seven (Diamonds)
+1 Seven (Clubs)
+1 Eight (Spades)
+1 Eight (Hearts)
+1 Eight (Diamonds)
+1 Eight (Clubs)
+1 Nine (Spades)
+1 Nine (Hearts)
+1 Nine (Diamonds)
+1 Nine (Clubs)
+1 Ten (Spades)
+1 Ten (Hearts)
+1 Ten (Diamonds)
+1 Ten (Clubs)
+1 Jack (Spades)
+1 Jack (Hearts)
+1 Jack (Diamonds)
+1 Jack (Clubs)
+1 Queen (Spades)
+1 Queen (Hearts)
+1 Queen (Diamonds)
+1 Queen (Clubs)
+1 King (Spades)
+1 King (Hearts)
+1 King (Diamonds)
+1 King (Clubs)
