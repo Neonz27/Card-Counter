@@ -54,7 +54,7 @@ const std::string get_card_name() {
 int main() {
 	try {
 		Parser parser(get_deck_file());
-		Deck deck(parser.cards, 52);
+		Deck deck(parser.m_cards, parser.m_card_quantity);
 
 		bool is_playing = true;
 		while(is_playing) {

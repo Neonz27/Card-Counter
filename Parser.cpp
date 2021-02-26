@@ -2,8 +2,8 @@
 #include "Utility.hpp"
 #include <fstream>
 
-Parser::Parser(const std::string& file_name) {
-	std::ifstream deck_file(file_name);
+Parser::Parser(const std::string& file_name) : m_card_quantity(0) {
+	std::ifstream deck_file(file_name + ".txt");
 
 	if(deck_file.fail()) {
 		throw DeckFileDoesntExist();
@@ -17,12 +17,14 @@ Parser::Parser(const std::string& file_name) {
 		const std::string name = current_line.substr(delimeter_position + 1);
 		const unsigned short int quantity = std::stoi(current_line.substr(0, delimeter_position), nullptr, 0);
 
-		cards.push_back(
+		m_cards.push_back(
 			std::make_tuple(
 				name,
 				quantity,
 				0.0f
 			)
 		);
+
+		m_card_quantity += 1;
 	}
 }

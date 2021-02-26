@@ -24,5 +24,6 @@ class Parser {
 		Parser(const std::string& file_name);
 
 		// Public Member Variable(s)
-		std::vector<card> cards;
+		std::vector<card> m_cards;
+		unsigned short int m_card_quantity;
 };
